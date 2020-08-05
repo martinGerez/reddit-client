@@ -18,7 +18,7 @@ class PostBuilderService
       end
     end
 
-    OpenStruct.new({ success?: true, payload: Post.all })
+    OpenStruct.new({ success?: true })
   rescue StandardError => e
     OpenStruct.new({ success?: true, error: e })
   end

@@ -11,7 +11,7 @@ module RedditServices
       result  = build_posts(entries)
       raise StandardError.new('Something went wrong with external service') unless result.success?
 
-      OpenStruct.new({ success?: true, payload: result.payload })
+      OpenStruct.new({ success?: true })
     rescue StandardError => e
       OpenStruct.new({ success?: false, error: "Something went wrong: #{e}" })
     end

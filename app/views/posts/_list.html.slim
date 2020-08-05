@@ -1,0 +1,14 @@
+- @posts.each do |post|
+  .card data-target="posts-list.card"
+    .container
+      div bp="float-right"
+        = link_to 'X', '#', 'bp': 'margin--sm', data: { target: 'posts-list.dismissLink', action: 'click->posts-list#dissmiss', id: post.id }
+      h3 = post.title
+      h4 = post.author
+      p
+        | Comments #{post.comments}
+
+      = distance_of_time_in_words(post.entry_date, Time.now)
+      / = post.author
+      / = post.author
+      / = post.author

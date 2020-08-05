@@ -1,2 +1,9 @@
-- @posts.each do |post|
-  = post
+div bp="grid margin-top--lg"
+  div bp="6 text-center" data-controller="posts-list"
+    = link_to 'Dissmiss all', '#', data: { action: 'click->post-list#dissmiss_all' }
+    = link_to 'Find new posts', '#', data: { action: 'click->post-list#dissmiss_all' }
+    div data-target="posts-list.list"
+      = render 'list', posts: @posts
+  div bp="6 text-center" data-controller="post-detail" 2
+/ - @posts.each do |post|
+/   = post
