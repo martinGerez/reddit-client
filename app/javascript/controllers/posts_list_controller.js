@@ -1,7 +1,8 @@
 import { Controller } from 'stimulus';
 
 export default class extends Controller {
-  static targets = ['card', 'dissmissLink'];
+  static targets = ['dissmissAll', 'list', 'fetchNewPosts', 'card', 'dissmissLink'
+  ];
 
   dissmiss(event) {
     event.preventDefault();
@@ -26,13 +27,24 @@ export default class extends Controller {
 
     this.cardTargets.forEach(e => e.classList.add('dissmissed'))
 
-    fetch('/posts/#{}/dissmiss', {
+    fetch('/posts/dissmiss_all', {
       credentials: 'same-origin',
       method: 'PATCH',
       headers: {
         'X-CSRF-Token': this.getMetaValue('csrf-token')
       }
     });
+  }
+
+  async fetch_new_posts(event) {
+    event.preventDefault();
+
+    const response = await fetch('/posts/new_posts');
+
+    if (response) {
+      const json = await response.json();
+      this.listTarget.innerHTML = json.html;
+    }
   }
 
   getMetaValue(name) {

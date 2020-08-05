@@ -5,18 +5,15 @@ class PostsController < ApplicationController
     result = RedditServices::TopPostsService.new.call
 
     if result && result.success?
+      @posts = Post.not_dissmissed
+
+      render json: { html: render_to_string(partial: 'posts/list', locals: { posts: @posts }) }
     end
   end
 
 
   def index
-
-
-    if result && result.success?
-      @posts = Post.not_dissmissed
-    else
-      @posts = []
-    end
+    @posts = Post.not_dissmissed
   end
 
   def dissmiss
