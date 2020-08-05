@@ -201,6 +201,13 @@ GEM
       docile (~> 1.1)
       simplecov-html (~> 0.11)
     simplecov-html (0.12.2)
+    slim (4.1.0)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 2.0.6, < 2.1)
+    slim-rails (3.2.0)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      slim (>= 3.0, < 5.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -217,8 +224,10 @@ GEM
       net-ssh (>= 2.8.0)
     sshkit-interactive (0.3.0)
       sshkit (~> 1.12)
+    temple (0.8.2)
     thor (1.0.1)
     thread_safe (0.3.6)
+    tilt (2.0.10)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -266,6 +275,7 @@ DEPENDENCIES
   rspec-rails (~> 4.0.0)
   selenium-webdriver
   simplecov
+  slim-rails
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
