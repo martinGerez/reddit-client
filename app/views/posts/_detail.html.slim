@@ -1,5 +1,6 @@
 .card
   .card-content
+    = post.thumbnail.present? ? image_tag(url_for(post.thumbnail)) : 'No image'
     p
       | Title:
       b  #{post.title}

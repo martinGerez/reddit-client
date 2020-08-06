@@ -7,7 +7,7 @@
         p
           b = post.title
       .card-content
-        div bp="grid 6"
+        div bp="grid 12@sm"
           div
             p
               | Author:
@@ -17,14 +17,14 @@
               | Comments:
               b  #{post.comments}
       .card-footer
-        div bp="grid"
-          div bp="4 text-center"
+        div bp="grid 4@md 12@sm"
+          div bp="text-center"
             b Published #{distance_of_time_in_words(post.entry_date, Time.now)} ago
-          div bp="4 text-center"
+          div bp="text-center"
             p data-target="posts-list.status" data-id="#{post.id}"
               | Status:
               b  #{post.read? ? 'Read' : 'Unread'}
-          div bp="4 text-center"
+          div bp="text-center"
             a href="#" data-action="click->posts-list#show_detail" data-id="#{post.id}"
               | Show detail
 
