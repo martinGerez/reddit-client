@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     result = RedditServices::TopPostsService.new.call
 
     if result && result.success?
-      @posts = Post.not_dissmissed.paginate(page: params[:page], per_page: 5)
+      @posts = Post.not_dissmissed.page(params[:page])
 
       render json: { html: render_to_string(partial: 'posts/list', locals: { posts: @posts }) }
     end
@@ -13,7 +13,12 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.not_dissmissed.paginate(page: params[:page], per_page: 5)
+    @posts = Post.not_dissmissed.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js {}
+    end
   end
 
   def dissmiss
