@@ -1,0 +1,14 @@
+.card
+  .card-content
+    p
+      | Title:
+      b  #{post.title}
+    p
+      | Author:
+      b  #{post.author}
+    p
+      | Commets count:
+      b  #{post.comments}
+    p
+      | Published:
+      b  #{distance_of_time_in_words(post.entry_date, Time.now)} ago

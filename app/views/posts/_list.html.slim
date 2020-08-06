@@ -17,14 +17,16 @@
               | Comments:
               b  #{post.comments}
       .card-footer
-        div bp="grid 6"
-          div bp="float-left"
-            p
-              b Published #{distance_of_time_in_words(post.entry_date, Time.now)} ago
-          div
-            p bp="float-right"
+        div bp="grid"
+          div bp="4 text-center"
+            b Published #{distance_of_time_in_words(post.entry_date, Time.now)} ago
+          div bp="4 text-center"
+            p data-target="posts-list.status" data-id="#{post.id}"
               | Status:
-              b  #{post.status.presence || 'Unread'}
+              b  #{post.read? ? 'Read' : 'Unread'}
+          div bp="4 text-center"
+            a href="#" data-action="click->posts-list#show_detail" data-id="#{post.id}"
+              | Show detail
 
   div bp="float-right"
     div data-target='posts-list.pagination'

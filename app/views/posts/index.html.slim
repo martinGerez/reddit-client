@@ -1,5 +1,5 @@
-div bp="grid margin-top--lg"
-  div bp="6 text-center" data-controller="posts-list"
+div bp="grid margin-top--lg" data-controller="posts-list"
+  div bp="6 text-center"
     a href="#" data-target="posts-list.dissmissAll" data-action="click->posts-list#dissmiss_all"
       | Dissmiss all
     br
@@ -7,6 +7,6 @@ div bp="grid margin-top--lg"
       | Find new posts
     div data-target="posts-list.list"
       = render 'list', posts: @posts
-  div bp="6 text-center" data-controller="post-detail" 2
-/ - @posts.each do |post|
-/   = post
+  div bp="6 text-center" data-controller="post-detail"
+    div style="margin-top: 54px;"
+      div data-target="posts-list.detail"

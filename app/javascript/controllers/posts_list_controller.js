@@ -1,8 +1,7 @@
 import { Controller } from 'stimulus';
 
 export default class extends Controller {
-  static targets = ['dissmissAll', 'list', 'fetchNewPosts', 'card', 'dissmissLink'
-  ];
+  static targets = ['dissmissAll', 'list', 'fetchNewPosts', 'card', 'dissmissLink', 'detail', 'status'];
 
   dissmiss(event) {
     event.preventDefault();
@@ -44,6 +43,28 @@ export default class extends Controller {
     if (response) {
       const json = await response.json();
       this.listTarget.innerHTML = json.html;
+    }
+  }
+
+  async show_detail(event) {
+    event.preventDefault();
+    const id = event.target.dataset.id;
+    const indexOfStatusTarget = this.statusTargets.map(e => e.dataset.id).indexOf(id);
+    const statusTarget = this.statusTargets[indexOfStatusTarget];
+
+    if (statusTarget) {
+      statusTarget.innerHTML = "Status: <b>Read</b>"
+    }
+
+    if(id) {
+      try {
+        const response  = await fetch(`/posts/${id}`);
+        const json      = await response.json();
+
+        this.detailTarget.innerHTML = json.html;
+      } catch (e) {
+        alert(`Error: ${e}`)
+      }
     }
   }
 
