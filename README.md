@@ -30,3 +30,9 @@ Blueprint was a new technology, and I consciously decided to work with it to kno
 This project will be deployed to a VPS using UBUNTU.
 Nginx + Passenger as web server.
 Capistrano gems to automate deployment tasks.
+
+## Testing
+Te used testing suite is `Rspec`, which is one of the most popular testing frameworks in the Ruby ecosystem.
+In controller/requests testing, it would be a good decision to use libraries like `VCR` and `Webmock`, to avoid making several requests to external systems.
+Also, I consider it useful to improve coverage use SimpleCov to know the percentage of test coverage.
+Libraries like `FactoryBot`, `DatabaseCleaner`, `ShouldaMatchers` are not critical, but are very useful to reduce time consumption in testing and make tests more cleaner (ShouldaMatchers in a special way).
