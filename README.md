@@ -22,6 +22,9 @@ As the user can dismiss one or all posts, if Reddit has no changes in top posts,
 The time consumption at the start of the project was a lot because I tried to start with data, retrieving and filtering posts.
 After that, I started to work in frontend using Blueprint CSS as a grid layout and StimulusJS to add some behavior.
 
+## UI
+I decided to use `Blueprint CSS` for grid system, and `Metro UI` to use some fancy components like Cards among others. Only in this way and not in order to duplicate libraries
+
 ## Main Difficulties
 Reddit has not good documentation. It was hard at the start because makes some confusion. My bad on spending a lot of time on it.
 Blueprint was a new technology, and I consciously decided to work with it to know it and make this exercise more challenging.
